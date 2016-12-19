@@ -1,0 +1,3 @@
+ .homebtn{
+  border:0px solid transparent; /* this was 1px earlier */
+ }
