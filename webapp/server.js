@@ -1,11 +1,15 @@
 var express = require('express');
-var app = express();
-var path = require('path');
+var expressObj = express();
+var port = 8080;
 
-app.use(express.static('./public/'));
-
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+expressObj.use(express.static('public'));
+expressObj.get('/',function(req, resp){
+    resp.sendFile('./public/index.html')
 });
-
-app.listen(8080);
+expressObj.listen(port, function (err) {
+    if (err) {
+        console.log('something went wrong..' + err);
+    } else {
+        console.log('Listening on port ' + port);
+        }
+});
