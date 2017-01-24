@@ -1,6 +1,6 @@
 var express = require('express');
 var expressObj = express();
-var port = 8080;
+var port = 80;
 
 expressObj.use(express.static('public'));
 expressObj.get('/',function(req, resp){
