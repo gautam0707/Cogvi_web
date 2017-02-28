@@ -1,0 +1,28 @@
+<div>    
+        <div class="modal-header">
+            <h3 class="modal-title">Write to Us</h3>
+        </div>
+        <form class="modal-body">
+    <div class="form-group">
+      <label for="usr">Name</label>
+      <input type="text" class="form-control" id="usr" ng-model="Message.fromName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="eml" ng-model="Message.fromEmail">
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="sub" ng-model="Message.messageSubject">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <input type="textarea" class="form-control" id="msg" ng-model="Message.messageBody">
+    </div>
+  </form>
+</div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="send()">Send</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>    
+</div>

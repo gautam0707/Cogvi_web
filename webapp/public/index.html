@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Cogvi</title>
+    <link rel="shortcut icon" type="image/ico" href="img/logo.ico" />
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -33,7 +34,7 @@
   }
   </style>    
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-app='cogvi'>
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
@@ -101,7 +102,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About COGVI</h2>
-                <p>Cogvi is a private organization</p>                
+                <p>Cogvi is a team of people who aim to develop human like cognition in aritificial machines, currently we are a small group of people actively undergoing research in Artificial General Intelligence(AGI). Join us or let us join you to bring this activity futher, more active and hence achieving AGI as fast as we can.</p>                
             </div>
         </div>
     </section>
@@ -111,20 +112,18 @@
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Research & Development</h2>
-                    <p></p>
+                    <p>We are taking step towards to do good amount of research and development in AGI, we need more support to go forward, please visit our wiki page to know more.</p>
                     <a href="http://wiki.cogvi.org" target = '_blank' class="btn btn-default btn-lg btn-social-custom">Cogviki</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
+    <section id="contact" class="container content-section text-center" ng-controller="WriteToUs">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Us</h2>
-                <p>Address / contact info..</p>
-                <a href="#" class="btn btn-default btn-lg btn-social-custom">Write to us</a>
-                                
+            <h2>Contact Us</h2>
+			<a class="btn btn-default btn-lg btn-social-custom" ng-click="composeMessage()">Write to us</a>                               
             </div>
         </div>
     </section>        
@@ -141,6 +140,44 @@
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
+    <script src="js/grayscale.min.js"></script>    
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>        
+    <script type="text/javascript" src="./App/app.js"></script>
+    <script type="text/javascript" src="./App/Components/WriteToUs/WriteToUs.js"></script>
+    <script type="text/ng-template" id="WriteToUs.tmpl.html">
+    	<div>    
+        <div class="modal-header">
+            <h3 class="modal-title">Write to Us</h3>
+        </div>
+        <form class="modal-body">
+    <div class="form-group">
+      <label for="usr">Name</label>
+      <input type="text" class="form-control" id="usr" ng-model="Message.fromName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="eml" ng-model="Message.fromEmail">
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" class="form-control" id="sub" ng-model="Message.messageSubject">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <input type="textarea" class="form-control" id="msg" ng-model="Message.messageBody">
+    </div>
+  </form>
+</div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="send()">Send</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>    
+</div>
+
+    </script>
 </body>
 </html>
